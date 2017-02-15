@@ -1,0 +1,41 @@
+div.disp {
+    text-align: right;
+    padding: 10px;
+    border : solid 1px #aaaaaa;
+}
+
+div.num-btn {
+    width: 42px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius:10px;
+    background-color: khaki;
+}
+
+div.op-btn {
+    width: 42px;
+    font-weight: bold;
+    /*font-size: large;*/
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border : solid 2px #aaaaaa;
+    border-radius:10px;
+    background-color: aqua;
+}
+
+div.ans-btn {
+    width: 180px;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border : solid 3px #000000;
+    border-radius:10px;
+    background-color: chartreuse;
+}
