@@ -11,7 +11,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="libs/jquery-1.12.4.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -19,28 +19,36 @@
 </head>
 <body>
 Ho-Ho-Ho-!oo_test
-<div id="calc" class="container" style="width: 279px;">
+<div id="calc" class="container">
     <div class="row">
-        <div class="col-xs-12 disp">0</div>
+        <div class="col-xs-8 disp">0</div>
     </div>
     <div class="row">
-        <div class="col-xs-3"><div class="num-btn">7</div></div>
-        <div class="col-xs-3"><div class="num-btn">8</div></div>
-        <div class="col-xs-3"><div class="num-btn">9</div></div>
-        <div class="col-xs-3"><div class="op-btn">+</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">7</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">8</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">9</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">.</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">+/-</div></div>
+        <div class="col-xs-1"><div class="btn func-btn">AC</div></div>
+        <div class="col-xs-1"><div class="btn func-btn">RM</div></div>
+        <div class="col-xs-1"><div class="btn func-btn">BS</div></div>
     </div>
     <div class="row">
-        <div class="col-xs-3"><div class="num-btn">4</div></div>
-        <div class="col-xs-3"><div class="num-btn">5</div></div>
-        <div class="col-xs-3"><div class="num-btn">6</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">4</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">5</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">6</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">0</div></div>
+        <div class="col-xs-1"><div class="btn op-btn">+</div></div>
+        <div class="col-xs-1"><div class="btn op-btn">-</div></div>
+        <div class="col-xs-1"><div class="btn op-btn">*</div></div>
+        <div class="col-xs-1"><div class="btn op-btn">/</div></div>
     </div>
     <div class="row">
-        <div class="col-xs-3"><div class="num-btn">1</div></div>
-        <div class="col-xs-3"><div class="num-btn">2</div></div>
-        <div class="col-xs-3"><div class="num-btn">3</div></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-9"><div class="ans-btn">=</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">1</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">2</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">3</div></div>
+        <div class="col-xs-1"><div class="btn num-btn">000</div></div>
+        <div class="col-xs-4"><div class="ans-btn">=</div></div>
     </div>
 </div>
 <script language="JavaScript">
@@ -50,6 +58,7 @@ Ho-Ho-Ho-!oo_test
 
     // ---- for calculation
     var operator = '';
+    var function_name = '';
     var term1 = 0;
     var term2 = 0;
     var result = 0;
@@ -69,6 +78,21 @@ Ho-Ho-Ho-!oo_test
 
 		    disp_string += operator;
 		    $('.disp').text(disp_string);
+	    });
+
+	    $('.func-btn').click(function () {
+		    function_name = $(this).text();
+
+		    switch (function_name) {
+                case '':
+                	result = (term1 + term2);
+            }
+		    disp_string = result;
+		    $('.disp').text(disp_string);
+
+		    term1 = result;
+		    term2 = 0;
+		    current_term_string = String(result);
 	    });
 
 	    $('.ans-btn').click(function () {

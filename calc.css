@@ -1,40 +1,54 @@
+.container {
+    font-size: 16px;
+    width: 680px;
+}
+
 div.disp {
+    width: 460px;
+    margin-left: 12px;
+    font-size: xx-large;
     text-align: right;
     padding: 10px;
     border : solid 1px #aaaaaa;
 }
 
-div.num-btn {
-    width: 42px;
+.btn {
+    width: 54px;
+    height: 54px;
+    
+    font-size: 16px;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin: 2px;
+    padding: 0px;
+    line-height: 54px;
     border-radius:10px;
-    background-color: khaki;
 }
 
-div.op-btn {
-    width: 42px;
+.num-btn {
+    background-color: khaki;
+    border : solid 1px #aaaaaa;
+}
+
+.op-btn {
     font-weight: bold;
-    /*font-size: large;*/
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
     border : solid 2px #aaaaaa;
-    border-radius:10px;
     background-color: aqua;
 }
 
-div.ans-btn {
-    width: 180px;
+.func-btn {
+    background-color: #ffa07a;
+    border : solid 1px #aaaaaa;
+}
+
+.ans-btn {
+    width: 228px;
+    height: 54px;
+
     font-weight: bold;
-    font-size: x-large;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin: 2px;
+    padding: 0px;
+    line-height: 54px;
     border : solid 3px #000000;
     border-radius:10px;
     background-color: chartreuse;
