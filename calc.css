@@ -5,6 +5,8 @@
 
 div.disp {
     width: 460px;
+    min-height: 70px;
+    
     margin-left: 12px;
     font-size: xx-large;
     text-align: right;

@@ -30,7 +30,7 @@ Ho-Ho-Ho-!oo_test
         <div class="col-xs-1"><div class="btn num-btn">.</div></div>
         <div class="col-xs-1"><div class="btn num-btn">+/-</div></div>
         <div class="col-xs-1"><div class="btn func-btn">AC</div></div>
-        <div class="col-xs-1"><div class="btn func-btn">RM</div></div>
+        <div class="col-xs-1"><div class="btn func-btn">CE</div></div>
         <div class="col-xs-1"><div class="btn func-btn">BS</div></div>
     </div>
     <div class="row">
@@ -53,16 +53,15 @@ Ho-Ho-Ho-!oo_test
 </div>
 <script language="JavaScript">
     // ---- to store string
-    var disp_string = '';
-    var current_term_string = '';
+    var disp_string, current_term_string;
 
     // ---- for calculation
-    var operator = '';
-    var function_name = '';
-    var term1 = 0;
-    var term2 = 0;
-    var result = 0;
+    var operator, term1, term2, result;
+    
+    // ---- init
+    initialCalc();
 
+    // ---- Events
     $(function () {
     	$('.num-btn').click(function () {
     		current_term_string += $(this).text();
@@ -81,18 +80,26 @@ Ho-Ho-Ho-!oo_test
 	    });
 
 	    $('.func-btn').click(function () {
-		    function_name = $(this).text();
+		    var function_name = $(this).text();
 
 		    switch (function_name) {
-                case '':
-                	result = (term1 + term2);
+                case 'BS':
+                    if (current_term_string.length > 0) {
+                        disp_string = removeTail(disp_string);
+                        current_term_string = removeTail(current_term_string);
+                    }
+                	break;
+                case 'CE':
+                    if (current_term_string.length > 0) {
+                        disp_string = removeTail(disp_string, current_term_string.length);
+                        current_term_string = '';
+                    }
+                	break;
+                case 'AC':
+                    initialCalc();
+                	break;
             }
-		    disp_string = result;
 		    $('.disp').text(disp_string);
-
-		    term1 = result;
-		    term2 = 0;
-		    current_term_string = String(result);
 	    });
 
 	    $('.ans-btn').click(function () {
@@ -102,6 +109,16 @@ Ho-Ho-Ho-!oo_test
 		    switch (operator) {
                 case '+':
                 	result = (term1 + term2);
+                	break;
+                case '-':
+                	result = (term1 - term2);
+                	break;
+                case '*':
+                	result = (term1 * term2);
+                	break;
+                case '/':
+                	result = (term1 / term2);
+                	break;
             }
 		    disp_string = result;
 		    $('.disp').text(disp_string);
@@ -112,6 +129,30 @@ Ho-Ho-Ho-!oo_test
 	    });
 
     })
+    
+    function initialCalc() {
+        // ---- to store string
+        disp_string = '';
+        current_term_string = '';
+    
+        // ---- for calculation
+        operator = '';
+        function_name = '';
+        term1 = 0;
+        term2 = 0;
+        result = 0;
+    }
+    
+    function removeTail(base_string, remove_length = 1) {
+        var work = base_string;
+        if (remove_length > 0) {
+            if (base_string.length >= remove_length) {
+                work = base_string.substr(0, base_string.length - remove_length)
+            }
+        }
+        return work;
+    }
+    
 </script>
 </body>
 </html>
