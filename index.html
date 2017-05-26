@@ -11,7 +11,11 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <script src="libs/jquery-1.12.4.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -130,6 +134,8 @@ Ho-Ho-Ho-!oo_test
 
     })
     
+    /*  initialCalc: Initialize all globals.
+    */
     function initialCalc() {
         // ---- to store string
         disp_string = '';
@@ -137,12 +143,18 @@ Ho-Ho-Ho-!oo_test
     
         // ---- for calculation
         operator = '';
-        function_name = '';
         term1 = 0;
         term2 = 0;
         result = 0;
     }
     
+    /*  removeTail: Remove chars from tail of string.
+                    if cannot remove, return orginal string.
+    
+        params:
+            base_string: string to remove,
+            [remove_length: optional. number of remove chars. default = 1]
+    */
     function removeTail(base_string, remove_length = 1) {
         var work = base_string;
         if (remove_length > 0) {
